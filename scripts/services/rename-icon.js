@@ -4,10 +4,10 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const fs = require('fs-extra');
-const path = require('path');
+import fs from 'fs-extra';
+import path from 'path';
 
-const fileSystemHelper = require('../helpers/fs-helper');
+import fileSystemHelper from '../helpers/fs-helper.js';
 
 const getNewFileName = (srcFile, extension, postfix) => `${path.basename(srcFile, `.${extension}`)}-${postfix}.${extension}`;
 
@@ -31,4 +31,4 @@ const renameIcons = (srcPath, srcIcons, postfix, commonExtension) => {
   }));
 };
 
-module.exports = renameIcons;
+export default renameIcons;

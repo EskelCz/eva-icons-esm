@@ -1,9 +1,9 @@
-const fs = require('fs-extra');
-const path = require('path');
+import fs from 'fs-extra';
+import path from 'path';
 
-const fileSystemHelper = require('../helpers/fs-helper');
-const graphicsMagickHelper = require('../helpers/gm-helper');
-const TransformIcons = require('./transform-icons');
+import fileSystemHelper from '../helpers/fs-helper.js';
+import graphicsMagickHelper from '../helpers/gm-helper.js';
+import TransformIcons from './transform-icons.js';
 
 class TransformPngIcons extends TransformIcons {
   constructor(...args) {
@@ -51,4 +51,4 @@ class TransformPngIcons extends TransformIcons {
   }
 }
 
-module.exports = TransformPngIcons;
+export default TransformPngIcons;

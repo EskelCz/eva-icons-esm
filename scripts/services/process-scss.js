@@ -4,11 +4,11 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const path = require('path');
-const fs = require('fs-extra');
+import path from 'path';
+import fs from 'fs-extra';
 
-const config = require('../config');
-const fileSystemHelper = require('../helpers/fs-helper');
+import config from '../config.js';
+import fileSystemHelper from '../helpers/fs-helper.js';
 
 const genScssRoot = (scssRoot) => {
   const buildScss = './eva-icons.scss';
@@ -92,4 +92,4 @@ const processScss = () => {
   ]);
 };
 
-module.exports = processScss;
+export default processScss;

@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const fs = require('fs-extra');
+import fs from 'fs-extra';
 
 const fileSystemHelper = {
   remove(srcPath) {
@@ -59,4 +59,4 @@ const fileSystemHelper = {
   },
 };
 
-module.exports = fileSystemHelper;
+export default fileSystemHelper;

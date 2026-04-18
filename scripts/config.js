@@ -4,7 +4,10 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config = {
   'convertOptions': {
@@ -22,4 +25,4 @@ const config = {
   'defaultExtension': 'svg'
 };
 
-module.exports = config;
+export default config;

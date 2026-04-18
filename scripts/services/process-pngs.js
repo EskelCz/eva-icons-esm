@@ -4,10 +4,10 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const path = require('path');
+import path from 'path';
 
-const config = require('../config');
-const TransformPngIcons = require('./transform-png-icons');
+import config from '../config.js';
+import TransformPngIcons from './transform-png-icons.js';
 
 const processPngs = (srcFiles, srcPath, desPath) => {
   return Promise.all(srcFiles.map((srcFile) => {
@@ -22,4 +22,4 @@ const processPngs = (srcFiles, srcPath, desPath) => {
   }));
 };
 
-module.exports = processPngs;
+export default processPngs;

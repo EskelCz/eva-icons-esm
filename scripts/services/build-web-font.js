@@ -4,14 +4,14 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const webfont = require('webfont').default;
-const path = require('path');
-const fs = require('fs-extra');
+import { default as webfont } from 'webfont';
+import path from 'path';
+import fs from 'fs-extra';
 
-const processScss = require('./process-scss');
-const prepareSVGsForFonts = require('./web-font-process-svgs');
-const config = require('../config');
-const fileSystemHelper = require('../helpers/fs-helper');
+import processScss from './process-scss.js';
+import prepareSVGsForFonts from './web-font-process-svgs.js';
+import config from '../config.js';
+import fileSystemHelper from '../helpers/fs-helper.js';
 
 const webFontOptions = {
   files: path.resolve(config.desPath, '**/icons/svg/*.svg'),
@@ -63,4 +63,4 @@ const buildFont = () => {
   });
 };
 
-module.exports = buildFont;
+export default buildFont;

@@ -4,9 +4,9 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const path = require('path');
-const cheerio = require('cheerio');
-const htmlMinifier = require('html-minifier');
+import path from 'path';
+import * as cheerio from 'cheerio';
+import htmlMinifier from 'html-minifier';
 
 const getSvgContents = (svg) => {
   const $ = cheerio.load(svg, { xmlMode: true });
@@ -35,4 +35,4 @@ const buildIconsObject = (svgFiles, getSvg) => {
     }, {});
 };
 
-module.exports = buildIconsObject;
+export default buildIconsObject;

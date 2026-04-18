@@ -4,11 +4,11 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const fs = require('fs-extra');
-const path = require('path');
+import fs from 'fs-extra';
+import path from 'path';
 
-const graphicsMagickHelper = require('../helpers/gm-helper');
-const fileSystemHelper = require('../helpers/fs-helper');
+import graphicsMagickHelper from '../helpers/gm-helper.js';
+import fileSystemHelper from '../helpers/fs-helper.js';
 
 class TransformIcons {
   constructor(srcFile, srcFilePath, desPath, options) {
@@ -54,4 +54,4 @@ class TransformIcons {
   }
 }
 
-module.exports = TransformIcons;
+export default TransformIcons;

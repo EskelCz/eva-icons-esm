@@ -4,11 +4,11 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const fs = require('fs-extra');
-const path = require('path');
+import fs from 'fs-extra';
+import path from 'path';
 
-const fileSystemHelper = require('../helpers/fs-helper');
-const optimizeSvg = require('./oprimize-svg');
+import fileSystemHelper from '../helpers/fs-helper.js';
+import optimizeSvg from './oprimize-svg.js';
 
 const processSvgs = (svgFiles, srcPath, desPath) => {
   fileSystemHelper.mkDirByPathSync(desPath);
@@ -25,4 +25,4 @@ const processSvgs = (svgFiles, srcPath, desPath) => {
   }));
 };
 
-module.exports = processSvgs;
+export default processSvgs;
