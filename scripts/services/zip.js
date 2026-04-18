@@ -4,11 +4,11 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const fs = require('fs-extra');
-const path = require('path');
-const archiver = require('archiver');
+import fs from 'fs-extra';
+import path from 'path';
+import archiver from 'archiver';
 
-const config = require('../config');
+import config from '../config.js';
 
 const addToDirectory = (srcPath, subDir, zip) => {
   zip.directory(srcPath, subDir);
@@ -46,4 +46,4 @@ const zip = (iconsFolders, archivePath) => {
   zip.finalize();
 };
 
-module.exports = zip;
+export default zip;

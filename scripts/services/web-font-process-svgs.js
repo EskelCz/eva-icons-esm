@@ -4,13 +4,13 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const fs = require('fs-extra');
-const globby = require('globby');
-const path = require('path');
+import fs from 'fs-extra';
+import globby from 'globby';
+import path from 'path';
 
-const config = require('../config');
-const fileSystemHelper = require('../helpers/fs-helper');
-const optimizeSvg = require('./oprimize-svg');
+import config from '../config.js';
+import fileSystemHelper from '../helpers/fs-helper.js';
+import optimizeSvg from './oprimize-svg.js';
 
 const prepareSVGsForFonts = () => {
   const srcPath = path.resolve(config.desPath, '**/svg/*.svg');
@@ -33,4 +33,4 @@ const prepareSVGsForFonts = () => {
     });
 };
 
-module.exports = prepareSVGsForFonts;
+export default prepareSVGsForFonts;

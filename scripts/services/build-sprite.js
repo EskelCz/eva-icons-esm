@@ -4,12 +4,11 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const fs = require('fs-extra');
-const path = require('path');
-const lazyRequire = require('lazy-require');
+import fs from 'fs-extra';
+import path from 'path';
 
-const config = require('../config');
-const buildSpriteString = require('./build-sprite-string');
+import config from '../config.js';
+import buildSpriteString from './build-sprite-string.js';
 
 const buildSprite = (folder) => {
   const prefix = folder.toLowerCase();
@@ -19,14 +18,14 @@ const buildSprite = (folder) => {
   const outFile = path.join(config.desPath, outFileName);
 
   return new Promise((resolve) => {
-    lazyRequire.sync(inFile, (error, icons) => {
-      console.log(`Building ${outFile}...`);
+    const icons = JSON.parse(fs.readFileSync(inFile, 'utf-8'));
 
-      fs.writeFileSync(outFile, buildSpriteString(icons));
+    console.log(`Building ${outFile}...`);
 
-      resolve();
-    });
+    fs.writeFileSync(outFile, buildSpriteString(icons));
+
+    resolve();
   });
 };
 
-module.exports = buildSprite;
+export default buildSprite;

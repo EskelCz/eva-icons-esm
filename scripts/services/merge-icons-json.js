@@ -4,10 +4,10 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const fs = require('fs-extra');
-const path = require('path');
+import fs from 'fs-extra';
+import path from 'path';
 
-const config = require('../config');
+import config from '../config.js';
 
 const mergeIconsJSON = (files) => {
   const outFileName = 'eva-icons.json';
@@ -33,4 +33,4 @@ const mergeIconsJSON = (files) => {
   });
 };
 
-module.exports = mergeIconsJSON;
+export default mergeIconsJSON;

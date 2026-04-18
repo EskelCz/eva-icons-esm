@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const DEFAULT_ATTRS = require('../../package/src/default-attrs.json');
+import DEFAULT_ATTRS from '../../package/src/default-attrs.json' assert { type: 'json' };
 
 const toSvgSymbol = (name, contents) => {
   return `<symbol id="${name}" viewBox="${DEFAULT_ATTRS.viewBox}">${
@@ -20,4 +20,4 @@ const buildSpriteString = (icons) => {
   return `<svg xmlns="${DEFAULT_ATTRS.xmlns}"><defs>${symbols}</defs></svg>`;
 };
 
-module.exports = buildSpriteString;
+export default buildSpriteString;

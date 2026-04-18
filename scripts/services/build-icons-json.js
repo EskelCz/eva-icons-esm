@@ -4,11 +4,11 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const fs = require('fs-extra');
-const path = require('path');
+import fs from 'fs-extra';
+import path from 'path';
 
-const config = require('../config');
-const buildIconsObject = require('./build-icons-object');
+import config from '../config.js';
+import buildIconsObject from './build-icons-object.js';
 
 const getSvg = srcPath => svgFile => fs.readFileSync(path.join(srcPath, svgFile));
 
@@ -28,4 +28,4 @@ const buildIconsJSON = (srcIcons, srcPath, folder) => {
   });
 };
 
-module.exports = buildIconsJSON;
+export default buildIconsJSON;

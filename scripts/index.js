@@ -4,18 +4,21 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const config = require('./config');
-const fileSystemHelper = require('./helpers/fs-helper');
-const processSvgs = require('./services/process-svgs');
-const processPngs = require('./services/process-pngs');
-const buildIconsJSON = require('./services/build-icons-json');
-const buildSprite = require('./services/build-sprite');
-const renameIcons = require('./services/rename-icon');
-const mergeIconsJSON = require('./services/merge-icons-json');
-const zip = require('./services/zip');
-const buildWebFont = require('./services/build-web-font');
+import config from './config.js';
+import fileSystemHelper from './helpers/fs-helper.js';
+import processSvgs from './services/process-svgs.js';
+import processPngs from './services/process-pngs.js';
+import buildIconsJSON from './services/build-icons-json.js';
+import buildSprite from './services/build-sprite.js';
+import renameIcons from './services/rename-icon.js';
+import mergeIconsJSON from './services/merge-icons-json.js';
+import zip from './services/zip.js';
+import buildWebFont from './services/build-web-font.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const renameSrcIcons = (srcPath, srcIcons, postfix, extension) => {
   if (postfix.toLowerCase() === 'outline') {
@@ -42,9 +45,8 @@ const merge = () => {
     });
 };
 const copyPackageJson = () => {
-  const fileName = 'package.json';
-  const srcPath = path.join(__dirname, fileName);
-  const desPath = path.join(config.desPath, fileName);
+  const srcPath = path.join(__dirname, 'package-template.json');
+  const desPath = path.join(config.desPath, 'package.json');
 
   return fileSystemHelper.copy(srcPath, desPath);
 };
