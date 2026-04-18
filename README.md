@@ -23,19 +23,14 @@ After including the script, `eva` will be available as a global variable.
 npm i eva-icons
 ``` 
 
-- Include it to your page:
-```html
-<script src="path/to/dist/eva-icons.js"></script>
-```
-
-- Or require the package (may vary depending on your build system):
+- Import the package (ESM):
 
 ```js
-const eva = require('eva-icons');
+import { replace } from 'eva-icons';
 ```
 
 ```js
-import * as eva from 'eva-icons';
+import { icons, replace } from 'eva-icons';
 ```
 
 ## How to use
@@ -48,19 +43,19 @@ import * as eva from 'eva-icons';
 <i data-eva="github"></i>
 ```
 
-- Call `eva.replace();` to replace all elements with the `data-eva` data attribute with SVG elements. You can also pass some additional parameters to the `replace` method to modify the `replace` function behavior. 
+- Call `replace();` to replace all elements with the `data-eva` data attribute with SVG elements. You can also pass some additional parameters to the `replace` method to modify the `replace` function behavior. 
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
   <title></title>
-  <script src="https://unpkg.com/eva-icons"></script>
   <body>
   
     <i data-eva="github"></i>
 
-    <script>
-      eva.replace()
+    <script type="module">
+      import { replace } from 'eva-icons';
+      replace();
     </script>
   </body>
 </html>
@@ -96,7 +91,7 @@ We recommend using SVG icons due to better rendering and performance capabilitie
 
 ## Documentation
 
-### `eva.replace(options)`
+### `replace(options)`
 
 Replaces all elements that have a `data-eva` attribute with SVG markup.
 
@@ -128,10 +123,12 @@ Replaces all elements that have a `data-eva` attribute with SVG markup.
 
 > **Note:** In the above example `github icon` will be always animated. This type of animation will be applied only to current icons.
 
-- Pass animation as property in a `eva.replace` method.
+- Pass animation as property in a `replace` method.
 
 ```js
-eva.replace({
+import { replace } from 'eva-icons';
+
+replace({
   animation: {
     type: string, // zoom, pulse, shake, flip
     hover: boolean, // default true
